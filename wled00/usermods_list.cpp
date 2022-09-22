@@ -15,6 +15,10 @@
 #include "../usermods/battery_status_basic/usermod_v2_battery_status_basic.h"
 #endif
 
+#ifdef USERMOD_SLEEP_TIMEOUT
+#include "../usermods/sleep_timeout/usermod_sleep_timeout.h"
+#endif
+
 #ifdef USERMOD_DALLASTEMPERATURE
 #include "../usermods/Temperature/usermod_temperature.h"
 #endif
@@ -139,6 +143,10 @@ void registerUsermods()
 
   #ifdef USERMOD_BATTERY_STATUS_BASIC
   usermods.add(new UsermodBatteryBasic());
+  #endif
+
+  #ifdef USERMOD_SLEEP_TIMEOUT
+  usermods.add(new SleepTimeout());
   #endif
 
   #ifdef USERMOD_DALLASTEMPERATURE
